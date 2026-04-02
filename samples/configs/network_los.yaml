@@ -1,0 +1,19 @@
+# Network level-of-service settings
+zone_system: 1
+
+taz_skims: skims.omx
+
+skim_time_periods:
+  time_window: 1440
+  period_minutes: 60
+  periods:
+    - EA
+    - AM
+    - MD
+    - PM
+    - EV
+
+speed_units: mph
+
+read_skim_cache: False
+write_skim_cache: True

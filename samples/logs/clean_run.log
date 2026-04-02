@@ -1,0 +1,18 @@
+2025-02-01 10:00:01,000 INFO - activitysim.core.pipeline - Running model 'initialize_landuse'
+2025-02-01 10:00:02,200 INFO - activitysim.core.pipeline - Time to execute 'initialize_landuse' : 1.200 seconds (0.0 minutes)
+2025-02-01 10:00:02,201 INFO - activitysim.core.pipeline - Running model 'initialize_households'
+2025-02-01 10:00:03,400 INFO - activitysim.core.pipeline - Time to execute 'initialize_households' : 1.199 seconds (0.0 minutes)
+2025-02-01 10:00:03,401 INFO - activitysim.core.pipeline - Running model 'compute_accessibility'
+2025-02-01 10:00:08,600 INFO - activitysim.core.pipeline - Time to execute 'compute_accessibility' : 5.199 seconds (0.1 minutes)
+2025-02-01 10:00:08,601 INFO - activitysim.core.pipeline - Running model 'school_location'
+2025-02-01 10:00:11,800 INFO - activitysim.core.pipeline - Time to execute 'school_location' : 3.199 seconds (0.1 minutes)
+2025-02-01 10:00:11,801 INFO - activitysim.core.pipeline - Running model 'workplace_location'
+2025-02-01 10:00:16,000 INFO - activitysim.core.pipeline - Time to execute 'workplace_location' : 4.199 seconds (0.1 minutes)
+2025-02-01 10:00:16,001 INFO - activitysim.core.pipeline - Running model 'tour_mode_choice'
+2025-02-01 10:00:25,200 INFO - activitysim.core.pipeline - Time to execute 'tour_mode_choice' : 9.199 seconds (0.2 minutes)
+2025-02-01 10:00:25,201 INFO - activitysim.core.pipeline - Running model 'trip_mode_choice'
+2025-02-01 10:00:32,400 INFO - activitysim.core.pipeline - Time to execute 'trip_mode_choice' : 7.199 seconds (0.1 minutes)
+2025-02-01 10:00:32,401 INFO - activitysim.core.pipeline - Running model 'write_tables'
+2025-02-01 10:00:35,600 INFO - activitysim.core.pipeline - Time to execute 'write_tables' : 3.199 seconds (0.1 minutes)
+2025-02-01 10:00:35,601 INFO - activitysim.core.pipeline - Simulation completed successfully
+2025-02-01 10:00:35,602 INFO - activitysim.core.pipeline - Total run time: 34.602 seconds (0.6 minutes)

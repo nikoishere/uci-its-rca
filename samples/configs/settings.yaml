@@ -1,0 +1,36 @@
+# ActivitySim settings
+inherit_settings: True
+
+models:
+  - initialize_landuse
+  - initialize_households
+  - compute_accessibility
+  - school_location
+  - workplace_location
+  - auto_ownership
+  - free_parking
+  - cdap_simulate
+  - mandatory_tour_frequency
+  - mandatory_tour_scheduling
+  - joint_tour_frequency
+  - joint_tour_destination
+  - joint_tour_scheduling
+  - non_mandatory_tour_frequency
+  - non_mandatory_tour_destination
+  - non_mandatory_tour_scheduling
+  - tour_mode_choice
+  - trip_mode_choice
+  - write_tables
+
+output_dir: output
+data_dir: data
+
+households_sample_size: 5000
+chunk_size: 0
+num_processes: 4
+multiprocess: False
+sharrow: False
+
+trace_hh_id: 1042
+resume_after:
+chunk_training_mode: disabled

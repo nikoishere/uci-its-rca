@@ -1,0 +1,48 @@
+2024-11-14 08:12:01,234 INFO - activitysim.core.pipeline - Running model 'initialize_landuse'
+2024-11-14 08:12:03,891 INFO - activitysim.core.pipeline - Running model 'initialize_households'
+2024-11-14 08:12:05,102 INFO - activitysim.core.pipeline - Time to execute 'initialize_households' : 1.211 seconds (0.0 minutes)
+2024-11-14 08:12:05,103 INFO - activitysim.core.pipeline - Running model 'compute_accessibility'
+2024-11-14 08:12:12,445 INFO - activitysim.core.pipeline - Time to execute 'compute_accessibility' : 7.342 seconds (0.1 minutes)
+2024-11-14 08:12:12,446 INFO - activitysim.core.pipeline - Running model 'school_location'
+2024-11-14 08:12:15,778 INFO - activitysim.core.pipeline - Time to execute 'school_location' : 3.332 seconds (0.1 minutes)
+2024-11-14 08:12:15,779 INFO - activitysim.core.pipeline - Running model 'workplace_location'
+2024-11-14 08:12:20,112 INFO - activitysim.core.pipeline - Time to execute 'workplace_location' : 4.333 seconds (0.1 minutes)
+2024-11-14 08:12:20,113 INFO - activitysim.core.pipeline - Running model 'auto_ownership'
+2024-11-14 08:12:22,334 INFO - activitysim.core.pipeline - Time to execute 'auto_ownership' : 2.221 seconds (0.0 minutes)
+2024-11-14 08:12:22,335 INFO - activitysim.core.pipeline - Running model 'free_parking'
+2024-11-14 08:12:23,556 INFO - activitysim.core.pipeline - Time to execute 'free_parking' : 1.221 seconds (0.0 minutes)
+2024-11-14 08:12:23,557 INFO - activitysim.core.pipeline - Running model 'cdap_simulate'
+2024-11-14 08:12:28,889 INFO - activitysim.core.pipeline - Time to execute 'cdap_simulate' : 5.332 seconds (0.1 minutes)
+2024-11-14 08:12:28,890 INFO - activitysim.core.pipeline - Running model 'mandatory_tour_frequency'
+2024-11-14 08:12:30,112 INFO - activitysim.core.pipeline - Time to execute 'mandatory_tour_frequency' : 1.222 seconds (0.0 minutes)
+2024-11-14 08:12:30,113 INFO - activitysim.core.pipeline - Running model 'mandatory_tour_scheduling'
+2024-11-14 08:12:35,445 INFO - activitysim.core.pipeline - Time to execute 'mandatory_tour_scheduling' : 5.332 seconds (0.1 minutes)
+2024-11-14 08:12:35,446 INFO - activitysim.core.pipeline - Running model 'joint_tour_frequency'
+2024-11-14 08:12:37,778 INFO - activitysim.core.pipeline - Time to execute 'joint_tour_frequency' : 2.332 seconds (0.0 minutes)
+2024-11-14 08:12:37,779 INFO - activitysim.core.pipeline - Running model 'joint_tour_destination'
+2024-11-14 08:12:40,112 INFO - activitysim.core.pipeline - Time to execute 'joint_tour_destination' : 2.333 seconds (0.0 minutes)
+2024-11-14 08:12:40,113 INFO - activitysim.core.pipeline - Running model 'joint_tour_scheduling'
+2024-11-14 08:12:42,445 INFO - activitysim.core.pipeline - Time to execute 'joint_tour_scheduling' : 2.332 seconds (0.0 minutes)
+2024-11-14 08:12:42,446 INFO - activitysim.core.pipeline - Running model 'non_mandatory_tour_frequency'
+2024-11-14 08:12:45,778 INFO - activitysim.core.pipeline - Time to execute 'non_mandatory_tour_frequency' : 3.332 seconds (0.1 minutes)
+2024-11-14 08:12:45,779 INFO - activitysim.core.pipeline - Running model 'non_mandatory_tour_destination'
+2024-11-14 08:12:50,112 INFO - activitysim.core.pipeline - Time to execute 'non_mandatory_tour_destination' : 4.333 seconds (0.1 minutes)
+2024-11-14 08:12:50,113 INFO - activitysim.core.pipeline - Running model 'non_mandatory_tour_scheduling'
+2024-11-14 08:12:53,445 INFO - activitysim.core.pipeline - Time to execute 'non_mandatory_tour_scheduling' : 3.332 seconds (0.1 minutes)
+2024-11-14 08:12:53,446 INFO - activitysim.core.pipeline - Running model 'tour_mode_choice'
+2024-11-14 08:12:53,500 INFO - activitysim.abm.models.tour_mode_choice - Running tour_mode_choice with 12,543 tours
+2024-11-14 08:12:53,501 INFO - activitysim.abm.models.tour_mode_choice - Loading tour mode choice coefficients
+2024-11-14 08:12:53,780 WARNING - activitysim.abm.models.tour_mode_choice - Column 'trip_mode' referenced in spec but not found in tours table
+2024-11-14 08:12:53,781 ERROR - activitysim.abm.models.tour_mode_choice - tour_mode_choice_simulate failed
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/activitysim/abm/models/tour_mode_choice.py", line 245, in run_tour_mode_choice_simulate
+    choices = interaction_simulate(
+  File "/opt/conda/lib/python3.10/site-packages/activitysim/core/interaction_simulate.py", line 412, in interaction_simulate
+    utilities = eval_utilities(spec, choosers, locals_d)
+  File "/opt/conda/lib/python3.10/site-packages/activitysim/core/simulate.py", line 189, in eval_utilities
+    values = choosers[column]
+  File "/opt/conda/lib/python3.10/site-packages/pandas/core/frame.py", line 3804, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/opt/conda/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    raise KeyError(key)
+KeyError: 'trip_mode'

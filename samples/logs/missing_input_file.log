@@ -1,0 +1,22 @@
+2025-01-10 09:00:01,000 INFO - activitysim.core.pipeline - Running model 'initialize_landuse'
+2025-01-10 09:00:02,500 INFO - activitysim.core.pipeline - Time to execute 'initialize_landuse' : 1.500 seconds (0.0 minutes)
+2025-01-10 09:00:02,501 INFO - activitysim.core.pipeline - Running model 'initialize_households'
+2025-01-10 09:00:02,502 INFO - activitysim.core.tracing - Reading input table 'households' from data/households.csv
+2025-01-10 09:00:02,503 INFO - activitysim.core.tracing - Reading input table 'persons' from data/persons.csv
+2025-01-10 09:00:02,504 INFO - activitysim.core.tracing - Reading input table 'land_use' from data/land_use.csv
+2025-01-10 09:00:02,505 INFO - activitysim.core.tracing - Reading input table 'accessibility' from data/accessibility.csv
+2025-01-10 09:00:02,506 ERROR - activitysim.core.tracing - Could not read input table 'accessibility'
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/activitysim/core/input.py", line 78, in read_input_table
+    df = pd.read_csv(file_path)
+  File "/opt/conda/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/opt/conda/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/opt/conda/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/opt/conda/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/opt/conda/lib/python3.10/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(handle, iomode, encoding=encoding, errors=errors, newline="")
+FileNotFoundError: [Errno 2] No such file or directory: '/home/researcher/activitysim_run/data/accessibility.csv'
