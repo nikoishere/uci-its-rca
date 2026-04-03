@@ -1,7 +1,6 @@
 """Tests for rca.log_parser — reverse-chunk log reader."""
 from __future__ import annotations
 
-import textwrap
 from pathlib import Path
 
 import pytest

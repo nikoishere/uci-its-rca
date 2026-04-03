@@ -1,6 +1,8 @@
 """Tests for rca.metrics — cost computation and session tracking."""
 from __future__ import annotations
 
+import pytest
+
 from rca.metrics import MetricsTracker, compute_cost
 from rca.models import CallMetrics
 
@@ -56,6 +58,3 @@ class TestMetricsTracker:
     def test_session_property(self) -> None:
         tracker = MetricsTracker()
         assert tracker.session.total_cost_usd == 0.0
-
-
-import pytest  # noqa: E402 (needed for approx)
