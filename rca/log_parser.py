@@ -8,6 +8,7 @@ Design:
   - Stops scanning as soon as the failure region plus enough context is found,
     so we never touch the irrelevant early parts of a multi-hundred-MB log.
 """
+
 from __future__ import annotations
 
 import re
@@ -96,9 +97,7 @@ class LogParser:
         start = max(0, failure_idx - self.context_lines)
         context_window = collected[start:]
 
-        stack_trace = self._extract_stack_trace(
-            context_window, failure_idx - start
-        )
+        stack_trace = self._extract_stack_trace(context_window, failure_idx - start)
 
         return LogParseResult(
             found=True,
@@ -142,9 +141,7 @@ class LogParser:
             if carry:
                 yield carry.decode("utf-8", errors="replace").rstrip("\r")
 
-    def _extract_stack_trace(
-        self, lines: list[str], failure_idx: int
-    ) -> str:
+    def _extract_stack_trace(self, lines: list[str], failure_idx: int) -> str:
         """
         Walk backwards from failure_idx looking for a Python traceback header.
         If found, collect from the header through the exception message line.
@@ -167,11 +164,7 @@ class LogParser:
         # (first non-indented, non-empty line that follows the header).
         while i < len(lines) and i < traceback_start + 80:
             trace.append(lines[i])
-            if (
-                i > traceback_start
-                and lines[i]
-                and not lines[i][0].isspace()
-            ):
+            if i > traceback_start and lines[i] and not lines[i][0].isspace():
                 break
             i += 1
 

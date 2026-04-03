@@ -1,0 +1,27 @@
+2024-12-02 14:30:01,100 INFO - activitysim.core.pipeline - Running model 'initialize_landuse'
+2024-12-02 14:30:04,200 INFO - activitysim.core.pipeline - Time to execute 'initialize_landuse' : 3.100 seconds (0.1 minutes)
+2024-12-02 14:30:04,201 INFO - activitysim.core.pipeline - Running model 'initialize_households'
+2024-12-02 14:30:06,500 INFO - activitysim.core.pipeline - Time to execute 'initialize_households' : 2.299 seconds (0.0 minutes)
+2024-12-02 14:30:06,501 INFO - activitysim.core.pipeline - Running model 'initialize_los'
+2024-12-02 14:30:06,502 INFO - activitysim.core.los - Loading network_los settings from network_los.yaml
+2024-12-02 14:30:06,510 INFO - activitysim.core.los - Loading skim data from data/skims.omx
+2024-12-02 14:30:06,600 INFO - activitysim.core.los - Number of zones: 4,587
+2024-12-02 14:30:06,601 INFO - activitysim.core.los - Number of skim matrices: 124
+2024-12-02 14:30:06,602 INFO - activitysim.core.los - Estimated memory for skims: 19.2 GB
+2024-12-02 14:30:06,603 WARNING - activitysim.core.los - Available system memory: 15.8 GB — skim data may not fit
+2024-12-02 14:30:10,100 INFO - activitysim.core.los - Loading skim matrix 1/124: SOV_TIME
+2024-12-02 14:30:10,800 INFO - activitysim.core.los - Loading skim matrix 2/124: SOV_DIST
+2024-12-02 14:30:11,500 INFO - activitysim.core.los - Loading skim matrix 3/124: SOV_TOLL
+2024-12-02 14:30:12,200 INFO - activitysim.core.los - Loading skim matrix 4/124: HOV2_TIME
+2024-12-02 14:30:45,300 INFO - activitysim.core.los - Loading skim matrix 52/124: TRANSIT_WALK_TIME
+2024-12-02 14:31:20,400 INFO - activitysim.core.los - Loading skim matrix 98/124: NMOT_DIST
+2024-12-02 14:31:35,500 WARNING - activitysim.core.los - Memory usage at 14.9 GB (94% of available)
+2024-12-02 14:31:50,600 INFO - activitysim.core.los - Loading skim matrix 112/124: TRANSIT_LR_FARE
+2024-12-02 14:32:05,700 INFO - activitysim.core.los - Loading skim matrix 120/124: TRANSIT_CR_XWAIT
+2024-12-02 14:32:10,100 ERROR - activitysim.core.los - Failed to allocate memory for skim matrix 121/124
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.10/site-packages/activitysim/core/los.py", line 334, in load_skim_data
+    skim_data = np.array(omx_file[skim_name], dtype=np.float32)
+  File "/opt/conda/lib/python3.10/site-packages/numpy/core/_methods.py", line 47, in _array
+    return _array(a, dtype=dtype, copy=copy, order=order)
+MemoryError: Unable to allocate 80.4 MiB for an array with shape (4587, 4587) and data type float32

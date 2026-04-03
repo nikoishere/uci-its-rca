@@ -7,6 +7,7 @@ in those files often hold clues — wrong paths, missing keys, bad chunk
 sizes, etc.  This module surfaces the most relevant keys without
 dumping the entire config into the LLM prompt.
 """
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -74,17 +75,20 @@ class YAMLExtractor:
     # ── Private ───────────────────────────────────────────────────────────────
 
     def _discover(self, config_dir: Path) -> list[Path]:
-        all_files = list(config_dir.glob("*.yaml")) + list(
-            config_dir.glob("*.yml")
-        )
+        all_files = list(config_dir.glob("*.yaml")) + list(config_dir.glob("*.yml"))
         priority_set = {n.lower() for n in _PRIORITY_NAMES}
         priority: list[Path] = []
         rest: list[Path] = []
         for p in all_files:
             (priority if p.name.lower() in priority_set else rest).append(p)
         # Sort priority by the canonical order, rest alphabetically.
-        priority.sort(key=lambda p: _PRIORITY_NAMES.index(p.name.lower())
-                      if p.name.lower() in _PRIORITY_NAMES else 99)
+        priority.sort(
+            key=lambda p: (
+                _PRIORITY_NAMES.index(p.name.lower())
+                if p.name.lower() in _PRIORITY_NAMES
+                else 99
+            )
+        )
         return priority + sorted(rest)
 
     def _parse(
@@ -128,9 +132,7 @@ class YAMLExtractor:
 
         return result
 
-    def _build_snippet(
-        self, yaml_path: Path, relevant: dict, raw: str
-    ) -> str:
+    def _build_snippet(self, yaml_path: Path, relevant: dict, raw: str) -> str:
         header = f"# {yaml_path.name}\n"
         body = (
             yaml.dump(relevant, default_flow_style=False, allow_unicode=True)

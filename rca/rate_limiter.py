@@ -4,6 +4,7 @@ Thread-safe token-bucket rate limiter.
 Used to cap outgoing OpenAI API calls so the agent plays well on
 shared lab machines that may have organisation-level RPM quotas.
 """
+
 from __future__ import annotations
 
 import threading

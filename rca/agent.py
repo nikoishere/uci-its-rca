@@ -11,6 +11,7 @@ Resilience:
   - Hard timeout on the httpx client inside the OpenAI SDK.
   - Graceful fallback report when all retries are exhausted.
 """
+
 from __future__ import annotations
 
 import time
@@ -217,9 +218,7 @@ class RCAAgent:
             confidence="LOW",
         )
 
-    def _fallback_report(
-        self, parse_result: LogParseResult, error: str
-    ) -> RCAReport:
+    def _fallback_report(self, parse_result: LogParseResult, error: str) -> RCAReport:
         return RCAReport(
             log_path=parse_result.log_path,
             failure_summary=f"LLM analysis unavailable — {error}",

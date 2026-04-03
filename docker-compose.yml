@@ -17,5 +17,18 @@ services:
       timeout: 5s
       retries: 10
 
+  rca:
+    build: .
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://rca:rca@db:5432/rca_db
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./logs:/logs:ro          # mount your log files here
+      - ./samples:/samples:ro    # sample logs included
+      - ./output:/output         # reports written here
+
 volumes:
   pgdata:

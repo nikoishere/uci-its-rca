@@ -2,6 +2,7 @@
 Central settings loaded from environment variables.
 Copy .env.example to .env and fill in your values before running.
 """
+
 from __future__ import annotations
 
 import os
