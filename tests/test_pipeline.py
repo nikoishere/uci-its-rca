@@ -2,6 +2,7 @@
 
 OpenAI is mocked so these tests run without credentials.
 """
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -77,7 +78,11 @@ class TestFullPipeline:
 
         assert report.confidence == "HIGH"
         # The mock returns a fixed root_cause about RAM; just check it's present
-        assert "15.8 GB" in report.root_cause or "memory" in report.root_cause.lower() or report.root_cause
+        assert (
+            "15.8 GB" in report.root_cause
+            or "memory" in report.root_cause.lower()
+            or report.root_cause
+        )
 
         # 4. Save to Markdown
         output_file = tmp_path / "report.md"

@@ -4,6 +4,7 @@ Text chunking and embedding via the OpenAI Embeddings API.
 Chunks use a small character-level overlap so sentences that straddle
 a boundary are still findable regardless of which chunk is retrieved.
 """
+
 from __future__ import annotations
 
 import time
@@ -33,9 +34,7 @@ def chunk_text(
 
 
 class Embedder:
-    def __init__(
-        self, metrics_tracker: MetricsTracker | None = None
-    ) -> None:
+    def __init__(self, metrics_tracker: MetricsTracker | None = None) -> None:
         self._client = OpenAI(api_key=settings.OPENAI_API_KEY)
         self._metrics = metrics_tracker or MetricsTracker()
 

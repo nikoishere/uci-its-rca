@@ -1,4 +1,5 @@
 """Tests for rca.log_parser — reverse-chunk log reader."""
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -27,7 +28,10 @@ class TestLogParserWithSampleLogs:
     def test_missing_file_detected(self, missing_file_log: Path) -> None:
         result = LogParser().parse(missing_file_log)
         assert result.found is True
-        assert "FileNotFoundError" in result.failure_line or "Traceback" in result.failure_line
+        assert (
+            "FileNotFoundError" in result.failure_line
+            or "Traceback" in result.failure_line
+        )
 
     def test_clean_log_no_failure(self, clean_log: Path) -> None:
         result = LogParser().parse(clean_log)
@@ -80,9 +84,7 @@ class TestLogParserEdgeCases:
         """Lines that are logger setup (e.g. logging.ERROR) should not trigger."""
         log = tmp_path / "noise.log"
         log.write_text(
-            "logging.ERROR = 40\n"
-            "logger.error('test setup complete')\n"
-            "INFO: all good\n"
+            "logging.ERROR = 40\nlogger.error('test setup complete')\nINFO: all good\n"
         )
         result = LogParser().parse(log)
         assert result.found is False

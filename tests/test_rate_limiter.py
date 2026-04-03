@@ -1,4 +1,5 @@
 """Tests for rca.rate_limiter — token bucket."""
+
 from __future__ import annotations
 
 import time

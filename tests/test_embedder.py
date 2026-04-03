@@ -1,4 +1,5 @@
 """Tests for rag.embedder — text chunking and embedding (OpenAI mocked)."""
+
 from __future__ import annotations
 
 from unittest.mock import MagicMock, patch

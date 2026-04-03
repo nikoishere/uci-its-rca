@@ -1,6 +1,7 @@
 """
 Shared data models used across the rca and rag packages.
 """
+
 from __future__ import annotations
 
 from datetime import datetime

@@ -1,4 +1,5 @@
 """Tests for rca.yaml_extractor — YAML config surfacing."""
+
 from __future__ import annotations
 
 from pathlib import Path

@@ -5,6 +5,7 @@ The query is constructed from the failure line and the tail of the
 stack trace so the embedding captures both the error type and the
 call-site context.
 """
+
 from __future__ import annotations
 
 from rca.models import LogParseResult, RAGCitation

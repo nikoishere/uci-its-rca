@@ -1,4 +1,5 @@
 """Tests for rca.agent — LLM-powered RCA agent (OpenAI mocked)."""
+
 from __future__ import annotations
 
 from unittest.mock import MagicMock, patch
@@ -67,7 +68,9 @@ class TestRCAAgent:
         assert report.confidence == "LOW"
 
     @patch("rca.agent.OpenAI")
-    def test_analyze_llm_failure_returns_fallback(self, mock_openai_cls: MagicMock) -> None:
+    def test_analyze_llm_failure_returns_fallback(
+        self, mock_openai_cls: MagicMock
+    ) -> None:
         mock_client = MagicMock()
         mock_openai_cls.return_value = mock_client
         mock_client.beta.chat.completions.parse.side_effect = Exception("API down")
@@ -78,7 +81,10 @@ class TestRCAAgent:
         )
         report = agent.analyze(_make_parse_result())
 
-        assert "unavailable" in report.failure_summary.lower() or "API down" in report.failure_summary
+        assert (
+            "unavailable" in report.failure_summary.lower()
+            or "API down" in report.failure_summary
+        )
         assert report.confidence == "LOW"
 
     @patch("rca.agent.OpenAI")

@@ -1,4 +1,5 @@
 """Tests for rca.metrics — cost computation and session tracking."""
+
 from __future__ import annotations
 
 import pytest

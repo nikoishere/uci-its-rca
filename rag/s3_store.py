@@ -6,6 +6,7 @@ Every ingested document is uploaded with metadata (title, doc_type,
 source filename) so the object is self-describing without a separate
 catalogue.
 """
+
 from __future__ import annotations
 
 import uuid

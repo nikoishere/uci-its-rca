@@ -7,6 +7,7 @@ Run `python main.py init-db` (or `init_db()` directly) once after
 The ivfflat index uses cosine distance, which matches the normalised
 embeddings produced by text-embedding-3-small.
 """
+
 from __future__ import annotations
 
 import psycopg2

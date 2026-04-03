@@ -14,6 +14,7 @@ Examples
   python main.py ingest runbook.md --type runbook --title "OOM on zone skims"
   python main.py init-db
 """
+
 from __future__ import annotations
 
 import sys
@@ -27,6 +28,7 @@ console = Console()
 
 # ── CLI group ─────────────────────────────────────────────────────────────────
 
+
 @click.group()
 def cli() -> None:
     """ActivitySim post-run Root Cause Analysis agent."""
@@ -34,16 +36,19 @@ def cli() -> None:
 
 # ── analyze ───────────────────────────────────────────────────────────────────
 
+
 @cli.command()
 @click.argument("log_file", type=click.Path(exists=True, path_type=Path))
 @click.option(
-    "--config-dir", "-c",
+    "--config-dir",
+    "-c",
     type=click.Path(exists=True, path_type=Path),
     default=None,
     help="Directory containing ActivitySim YAML config files.",
 )
 @click.option(
-    "--output", "-o",
+    "--output",
+    "-o",
     type=click.Path(path_type=Path),
     default=None,
     help="Save the report as a Markdown file at this path.",
@@ -146,10 +151,12 @@ def analyze(
 
 # ── ingest ────────────────────────────────────────────────────────────────────
 
+
 @cli.command("ingest")
 @click.argument("file_path", type=click.Path(exists=True, path_type=Path))
 @click.option(
-    "--type", "doc_type",
+    "--type",
+    "doc_type",
     required=True,
     type=click.Choice(["runbook", "incident"]),
     help="Document type.",
@@ -163,14 +170,13 @@ def ingest_cmd(file_path: Path, doc_type: str, title: str) -> None:
     """Ingest a runbook or incident report into the RAG knowledge base."""
     from rag.ingest import Ingestor
 
-    console.print(
-        f'[dim]Ingesting:[/dim] {file_path} as {doc_type} — "{title}"'
-    )
+    console.print(f'[dim]Ingesting:[/dim] {file_path} as {doc_type} — "{title}"')
     doc_id = Ingestor().ingest(file_path, doc_type, title)
     console.print(f"[green]Ingested.[/green] doc_id: {doc_id}")
 
 
 # ── init-db ───────────────────────────────────────────────────────────────────
+
 
 @cli.command("init-db")
 def init_db_cmd() -> None:

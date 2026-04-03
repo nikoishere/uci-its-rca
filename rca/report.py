@@ -1,6 +1,7 @@
 """
 Renders the RCAReport as a Rich terminal display and/or a Markdown file.
 """
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -37,9 +38,7 @@ def print_report(
     )
 
     # ── Root cause ────────────────────────────────────────────────────────────
-    console.print(
-        Panel(report.root_cause, title="Root Cause", border_style="yellow")
-    )
+    console.print(Panel(report.root_cause, title="Root Cause", border_style="yellow"))
 
     # ── Affected component ────────────────────────────────────────────────────
     console.print(

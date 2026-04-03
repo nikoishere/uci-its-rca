@@ -5,6 +5,7 @@ Usage (via CLI):
     python main.py ingest path/to/runbook.md --type runbook --title "OOM on zone-skims load"
     python main.py ingest path/to/incident.txt --type incident --title "KeyError trip_mode 2024-11"
 """
+
 from __future__ import annotations
 
 import uuid
@@ -48,9 +49,7 @@ class Ingestor:
         conn = get_connection()
         try:
             with conn.cursor() as cur:
-                for idx, (chunk, embedding) in enumerate(
-                    zip(chunks, embeddings)
-                ):
+                for idx, (chunk, embedding) in enumerate(zip(chunks, embeddings)):
                     cur.execute(
                         """
                         INSERT INTO knowledge_base
